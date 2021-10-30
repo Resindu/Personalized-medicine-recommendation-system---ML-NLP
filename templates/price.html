@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="payment.css">
+  <link rel="stylesheet" href="cart.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+
+
+
+
+  <title>Your Personal Medicine Recommender</title>
+  <style>
+  body, html {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .bg-img {
+    /* The image used */
+    background-image: url("static/pillss.jpg");
+
+    min-height: 600px;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  /* Add styles to the form container */
+  .formcontainer {
+    position: absolute;
+    right: 550px;
+    top:100px;
+    margin: 20px;
+    max-width: 300px;
+    padding: 16px;
+    background-color: white;
+  }
+
+  /* Full-width input fields */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+  /* Set a style for the submit button */
+  .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+
+  .btn:hover {
+    opacity: 1;
+  }
+
+.menubtn {
+  background-color: black;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+
+
+}
+
+.menubtn:hover {
+  opacity: 1;
+  color: #ffffff;
+   background-color: #51a351;
+}
+  </style>
+</head>
+<body>
+
+<div data-role="page">
+  <div class="header" data-position="fixed" id="header" style="height:100px;height:80px;background-color:#fff;">
+    <div class="col-lg-1">
+      <div class="logo">
+          <img src="/static/logoo.png" style="max-width: 130px;
+    height: auto;margin:-20px 0">
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="menu">
+        <div class="col-lg-4" style="margin:30px 0;">
+          <a href="{{ url_for('recomend') }}" class="menubtn" >Get a medcicine recommendation</a></div>
+          <div class="col-lg-4" style="margin:30px -10px;">
+
+          <a href="{{ url_for('review') }}" class="menubtn">Review a medcicine</a></div>
+
+      </div>
+    </div>
+
+  </div>
+<div class="content">
+  <h1 style="text-align: center;">Get your medicine price</h1>
+
+<div class="container" style="background:white;  border: 1px solid;border-color:#C4C4C4;  padding: 20px;box-shadow: 2px 2px #C4C4C4; height:auto;width:400px;margin:50px 500px" >
+
+
+    <!-- Main Input For Receiving Query to our ML -->
+   <form action="{{ url_for('predict')}}" method="POST">
+   <p></p>
+   <!-- <input type="text" name="comment"/> -->
+
+     DrugName <input type = "text" name= "name" /> <br>
+          Quantity<input type = "text" name = "comment" /> <br>
+
+
+
+   <br><BR>
+
+   <input type="submit" class="btn-info" value="Send Feedback" style="background-color:#9966ff;">
+
+ </form>
+
+  <br>
+  <br>
+
+
+</div>
+</div>
+</div>
+</body>
+</html>
